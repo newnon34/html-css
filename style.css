@@ -1,13 +1,66 @@
+*::before, *::after {
+    word-break: break-all;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    --wp--preset--color--black: #000000;
+    --wp--preset--color--cyan-bluish-gray: #abb8c3;
+    --wp--preset--color--white: #ffffff;
+    --wp--preset--color--pale-pink: #f78da7;
+    --wp--preset--color--vivid-red: #cf2e2e;
+    --wp--preset--color--luminous-vivid-orange: #ff6900;
+    --wp--preset--color--luminous-vivid-amber: #fcb900;
+    --wp--preset--color--light-green-cyan: #7bdcb5;
+    --wp--preset--color--vivid-green-cyan: #00d084;
+    --wp--preset--color--pale-cyan-blue: #8ed1fc;
+    --wp--preset--color--vivid-cyan-blue: #0693e3;
+    --wp--preset--color--vivid-purple: #9b51e0;
+    --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+    --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+    --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+    --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+    --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+    --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+    --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+    --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+    --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+    --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+    --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+    --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+    --wp--preset--font-size--small: 13px;
+    --wp--preset--font-size--medium: 20px;
+    --wp--preset--font-size--large: 36px;
+    --wp--preset--font-size--x-large: 42px;
+    --wp--preset--spacing--20: 0.44rem;
+    --wp--preset--spacing--30: 0.67rem;
+    --wp--preset--spacing--40: 1rem;
+    --wp--preset--spacing--50: 1.5rem;
+    --wp--preset--spacing--60: 2.25rem;
+    --wp--preset--spacing--70: 3.38rem;
+    --wp--preset--spacing--80: 5.06rem;
+    --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+    --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+    --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+    --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+}
+
+
 .Header {
     width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
     background-color: #fff;
-    z-index: 10;
     display: grid;
     height: 70px;
     unicode-bidi: isolate;
-    }
+}
 
 .Header--common {
     position: fixed !important;
@@ -22,11 +75,21 @@
     position: relative;
 }
 
+.HeaderContainer>*:last-child {
+    display: inline-flex
+}
+
 .HeaderLogo {
     align-self: center;
 }
 
 .HeaderLogo__image {
+    display: block;
+    height: 20px;
+    width: auto;
+}
+
+.HeaderLogo_image--pc {
     display: block;
     height: 20px;
     width: auto;
@@ -43,13 +106,7 @@
 }
 
 .HeaderNavHamburger {
-    cursor: pointer;
-    display: block;
-    position: relative;
-    width: 24px;
-    height: 17px;
-    margin: auto;
-    z-index: 100;
+    display: none;
 }
 
 .HeaderNavHamburger__line {
@@ -64,28 +121,46 @@
     transition: top 0.2s, transform 0.2s, opacity 0.3s;
 }
 
-.HeaderNavList{
-    overflow-y: scroll;
-    position: fixed;
-    top: 60px;
-    left: 100%;
-    width: 100%;
+.HeaderNavList {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.HeaderNavListItem {
+    margin-right: 45px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.HeaderNavListItem__link {
     display: block;
-    padding-top: 20px;
-    padding-bottom: 75px;
-    transition: transform 0.5s;
-    z-index: 99;
-    background-color: rgba(0, 0, 0, 0.8);
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
 }
 
-.HeaderNavListItem{
-    margin: 0;
-    padding: 0;
+.HeaderNavListItem__link >span:first-child {
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    line-height: 14.4px;
 }
 
-.HeaderNavListItem__botton {
+.HeaderNavListItem__link >span:last-child {
+    font-size: 10px;
+}
+
+.HeaderNavListItem__link >span {
+    display: block;
+    font-weight: 700;
+    text-align: center;
+}
+
+.HeaderNavListItem__button {
     font-size: 16px;
     margin: 0 auto;
     height: 60px;
@@ -110,14 +185,16 @@
     padding: 0 20px;
 }
 
+.HeaderNavListItem__button:visited {
+    color: #fff;
+}
+
 .FirstView {
-    height: fit-content;
     position: relative;
     height: 739px;
 }
 
 .FirstView__bg-image {
-    display: none;
     position: absolute;
     z-index: -1;
 }
@@ -149,15 +226,11 @@
     width: 775px;
 }
 
+.FirstView__whole-image {
+    display: none;
+}
+
 .FirstView__container {
-    padding-top: 0;
-    padding-bottom: 20px;
-    max-width: none;
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: none;
-    padding-left: 36px;
-    padding-right: 36px;
     max-width: 1040px;
     margin-left: auto;
     margin-right: auto;
@@ -219,28 +292,67 @@
     line-height: 16px;
 }
 
-/* スマートフォン用 レスポンシブ対応*/ 
 .FirstView_whole-image {
     display: none;
 }
 
+/* スマートフォン用(~767px) レスポンシブ対応*/ 
+
+@media screen and (max-width: 767px) {
+    .Header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #fff;
+        z-index: 10;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .HeaderContainer {
+        max-width: 100%;
+        margin: 0 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .HeaderLogo_image--pc {
+        display: none !important
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .HeaderNavList {
+        top: 70px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .FirstView {
-      height: fit-content;
+        height: fit-content;
     }
 }
 
 @media screen and (max-width: 767px) {
     .FirstView__bg-image {
-      display: none;
+        display: none;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .FirstView_whole-image {
+    .FirstView__whole-image {
         display: block;
         margin-bottom: 7px;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .FirstView__container {
+        max-width: none;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 0;
+        padding-bottom: 20px;
     }
 }
 
@@ -254,6 +366,12 @@
 }
 
 @media screen and (max-width: 767px) {
+    .FirstViewContent__button {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
     .FirstViewContent__badge-image {
         height: 102px;
         width: 102px;
@@ -262,20 +380,142 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+/* タブレット用(768~1080px) レスポンシブ対応*/
+@media screen and (max-width: 1080px) {
+    .Header--common {
+        position: fixed !important;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavList {
+        overflow-y: scroll;
+        position: fixed;
+        top: 60px;
+        left: 100%;
+        width: 100%;
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 75px;
+        transition: transform 0.5s;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.8);-webkit-overflow-scrolling: touch;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavHamburger {
+       cursor: pointer;
+       display: block;
+       position: relative;
+       width: 24px;
+       height: 17px;
+       margin: auto;
+       z-index: 100
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavHamburger__line:first-child {
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavHamburger__line:last-child {
+        top: 100%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavHamburger__line {
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #A2A2A4;
+        transform: translate(0, -50%);
+        border-radius: 10px;
+        transition: top 0.2s, transform 0.2s, opacity 0.3s;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .HeaderNavListItem {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .HeaderNavListItem__link {
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .HeaderNavListItem__link {
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .HeaderNavListItem__button {
+        font-size: 16px;
+        margin: 0 auto;
+        height: 60px;
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .FirstView__container {
+        max-width: none;
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+}
+
+/*PC用レスポンシブ対応*/
+@media screen and (min-width: 768px) {
+    .HeaderLogo {
+        transition: opacity 0.2s;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .HeaderNavListItem {
+        transition: opacity 0.2s;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .HeaderNavListItem__button {
+        transition: opacity 0.2s;
+    }
+}
+
+@media screen and (min-width: 768px) {
     .FirstViewContent__button {
-        width: 100% !important;
+        transition: opacity 0.2s;
     }
 }
 
 /*疑似クラス*/
 
 .HeaderLogo:hover { 
-        opacity: 0.8;
-    }
+    opacity: 0.8;
+}
 
 @media screen and (max-width: 767px) {
     .HeaderLogo:hover { 
+        opacity: 0.8;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .HeaderNavListItem__button:hover {
         opacity: 0.8;
     }
 }
@@ -309,7 +549,3 @@
         opacity: 0.8;
     }
 }
-
-
-
-
