@@ -63,7 +63,6 @@ body {
 }
 
 .Header--common {
-    position: fixed !important;
     box-shadow:0px 15px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -257,10 +256,6 @@ ul, ol {
 }
 
 .FirstViewContent__badge-image {
-    height: 102px;
-    width: 102px;
-    top: -20px;        
-    right: -85px;
     position: absolute;
     top: -105px;
     right: -150px;
@@ -510,6 +505,12 @@ ul, ol {
 
 @media screen and (max-width: 767px) {
     .HeaderLogo:hover { 
+        opacity: 0.8;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .HeaderNavListItem:hover {
         opacity: 0.8;
     }
 }
